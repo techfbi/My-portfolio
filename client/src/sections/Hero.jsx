@@ -102,7 +102,7 @@ const Hero = () => {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/techfbi"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-accent transition-colors duration-200"
@@ -112,7 +112,7 @@ const Hero = () => {
             </svg>
           </a>
           <a
-            href="https://x.com/yourusername"
+            href="https://x.com/ojayy__x?s=21"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-accent transition-colors duration-200"
@@ -122,7 +122,7 @@ const Hero = () => {
             </svg>
           </a>
           <a
-            href="mailto:youremail@example.com"
+            href="femiwebfullstack@gmail.com"
             className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-accent transition-colors duration-200"
           >
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">

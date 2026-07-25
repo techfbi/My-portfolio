@@ -43,5 +43,5 @@ h1, h2, h3, h4 {
 /* Shared horizontal padding for every full width section
    one place to control page edge spacing so no section can drift out of alignment again */
 .section-x {
-  @apply px-6 md:px-[160px];
+  @apply px-6 md:px-16;
 }
