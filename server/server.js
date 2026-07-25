@@ -91,7 +91,7 @@ app.post("/api/admin/login", loginLimiter, (req, res) => {
 
 // Creating a project now requires a valid token instead of the raw password
 app.post("/api/projects", requireAuth, upload.single("image"), (req, res) => {
-  const { title, description, stack, link } = req.body
+  const { title, description, type, stack, link } = req.body
   const data = fs.readFileSync(projectsPath, "utf-8")
   const projects = JSON.parse(data)
 
@@ -99,6 +99,7 @@ app.post("/api/projects", requireAuth, upload.single("image"), (req, res) => {
     id: Date.now(),
     title,
     description,
+    type,
     stack: stack.split(",").map((item) => item.trim()),
     link,
     image: req.file ? `/images/projects/${req.file.filename}` : null,
@@ -113,7 +114,7 @@ app.post("/api/projects", requireAuth, upload.single("image"), (req, res) => {
 // if a new image is uploaded it replaces the old path, otherwise the existing image stays untouched
 app.put("/api/projects/:id", requireAuth, upload.single("image"), (req, res) => {
   const { id } = req.params
-  const { title, description, stack, link, existingImage } = req.body
+  const { title, description, type, stack, link, existingImage } = req.body
 
   const data = fs.readFileSync(projectsPath, "utf-8")
   const projects = JSON.parse(data)
@@ -127,9 +128,9 @@ app.put("/api/projects/:id", requireAuth, upload.single("image"), (req, res) => 
     ...projects[index],
     title,
     description,
+    type,
     stack: stack.split(",").map((item) => item.trim()),
     link,
-    // if a new file was uploaded use its path, otherwise keep whatever image path was already there
     image: req.file ? `/images/projects/${req.file.filename}` : existingImage || null,
   }
 

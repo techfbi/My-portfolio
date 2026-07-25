@@ -3,6 +3,7 @@
     "id": 1784957299609,
     "title": "Flax",
     "description": "This is an intelligent nutition an hydration tracker",
+    "type": "Full Stack",
     "stack": [
       "Typescript",
       "React",
@@ -12,12 +13,13 @@
       "Express js"
     ],
     "link": "https://flax-ui.vercel.app",
-    "image": "/images/projects/1784957299570-UI UX flax screenshot 5.png"
+    "image": "/images/projects/1784966562579-flax shot.png"
   },
   {
     "id": 1,
     "title": "Task Flow",
     "description": "A collaborative task management app with real time updates, built with React on the frontend and a Node.js and PostgreSQL backend handling auth and data persistence.",
+    "type": "Backend",
     "stack": [
       "React",
       "Node.js",
@@ -30,6 +32,7 @@
     "id": 2,
     "title": "Auth Gateway",
     "description": "A reusable OAuth authentication service with token refresh handling, rate limiting, and audit logging, designed to sit in front of multiple client applications.",
+    "type": "Backend",
     "stack": [
       "Node.js",
       "REST APIs",
@@ -43,6 +46,7 @@
     "id": 3,
     "title": "Storefront UI",
     "description": "A responsive ecommerce interface with cart state management, product filtering, and checkout flow, focused on accessibility and clean component structure.",
+    "type": "Frontend",
     "stack": [
       "React",
       "TypeScript",

@@ -100,7 +100,7 @@ const Hero = () => {
             Download CV ↓
           </a>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mb-20 md:mb-0">
           <a
             href="https://github.com/techfbi"
             target="_blank"
@@ -122,7 +122,7 @@ const Hero = () => {
             </svg>
           </a>
           <a
-            href="femiwebfullstack@gmail.com"
+            href="mailto:femiwebfullstack@gmail.com"
             className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-accent transition-colors duration-200"
           >
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
