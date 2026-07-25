@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base body styling so every page starts from the same dark surface and font */
+body {
+  @apply bg-background text-body font-body antialiased;
+}
+
+/* Every heading tag defaults to Montserrat and white, individual components can override weight and size */
+h1, h2, h3, h4 {
+  @apply font-heading text-heading;
+}
+
+/* Fades the portrait into the page background at the bottom and outer edge
+   mask-image uses a gradient, black areas stay visible, transparent areas disappear
+   this creates the emerging from the dark look without touching the image file itself */
+.hero-portrait-fade {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 100%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%
+  );
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+    to bottom,
+    black 30%,
+    transparent 95%
+  ),
+  linear-gradient(
+    to right,
+    transparent 0%,
+    black 80%
+  );
+  mask-composite: intersect;
+}
+
+/* Shared horizontal padding for every full width section
+   one place to control page edge spacing so no section can drift out of alignment again */
+.section-x {
+  @apply px-6 md:px-[160px];
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1784957299609,
+    "title": "Flax",
+    "description": "This is an intelligent nutition an hydration tracker",
+    "stack": [
+      "Typescript",
+      "React",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Node js",
+      "Express js"
+    ],
+    "link": "https://flax-ui.vercel.app",
+    "image": "/images/projects/1784957299570-UI UX flax screenshot 5.png"
+  },
+  {
+    "id": 1,
+    "title": "Task Flow",
+    "description": "A collaborative task management app with real time updates, built with React on the frontend and a Node.js and PostgreSQL backend handling auth and data persistence.",
+    "stack": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "link": "https://github.com/yourusername/taskflow",
+    "image": null
+  },
+  {
+    "id": 2,
+    "title": "Auth Gateway",
+    "description": "A reusable OAuth authentication service with token refresh handling, rate limiting, and audit logging, designed to sit in front of multiple client applications.",
+    "stack": [
+      "Node.js",
+      "REST APIs",
+      "OAuth",
+      "PostgreSQL"
+    ],
+    "link": "https://github.com/yourusername/authgateway",
+    "image": null
+  },
+  {
+    "id": 3,
+    "title": "Storefront UI",
+    "description": "A responsive ecommerce interface with cart state management, product filtering, and checkout flow, focused on accessibility and clean component structure.",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "link": "https://github.com/yourusername/storefront-ui",
+    "image": null
+  }
+]
