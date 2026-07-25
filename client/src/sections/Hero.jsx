@@ -58,6 +58,9 @@ const Hero = () => {
           src="/images/portrait.png"
           alt="Portrait of Oluwafemi Johnson"
           className="h-[85vh] w-auto object-cover hero-portrait-fade"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
         />
       </motion.div>
       {/* Text column, relative and z-10 lifts it above the background portrait
@@ -146,6 +149,9 @@ const Hero = () => {
           src="/images/portrait.png"
           alt="Portrait of Oluwafemi Johnson"
           className="h-[45vh] w-auto object-contain hero-portrait-fade"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
         />
       </motion.div>
 

@@ -13,6 +13,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Preload starts the portrait download immediately, in parallel with the javascript bundle
+         instead of waiting for react to render before the browser even knows this image exists
+         media query means mobile only preloads the smaller mobile file, not both -->
+    <link rel="preload" as="image" href="/images/portrait.png" media="(min-width: 768px)" />
   </head>
   <body class="bg-background">
     <div id="root"></div>
