@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
-// A single project card, image box only renders if an image exists
-// fixed height on the text area keeps all cards the same height regardless of content length
+
+// Card now sizes to its own content instead of being forced to match the tallest card in its row
+// this is intentional since some projects have images and long descriptions, others do not
+// forcing equal height was creating large empty gaps on shorter cards, letting them size naturally reads as clean instead of broken
 const ProjectCard = ({ project }) => {
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   return (
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="flex flex-col bg-surface border border-border rounded-2xl overflow-hidden h-full"
+      className="flex flex-col bg-surface border border-border rounded-2xl overflow-hidden"
     >
-      {/* Image only shows if this project has one, backend only projects skip this entirely */}
       {project.image && (
         <div className="w-full aspect-video overflow-hidden">
           <img
@@ -20,17 +21,25 @@ const ProjectCard = ({ project }) => {
         </div>
       )}
 
-      <div className="flex flex-col flex-1 p-6">
-        <h3 className="font-heading font-bold text-base md:text-xl text-heading mb-2">
-          {project.title}
-        </h3>
+      <div className="flex flex-col p-6">
+        {/* Type tag sits above the title, small and quiet, gives quick context before reading the description */}
 
-        {/* flex-1 pushes the stack pills and link to the bottom, keeping card heights aligned */}
-        <p className="font-body text-body text-sm lg:text-base leading-relaxed flex-1">
+        <div className="flex justify-between">
+          <h3 className="font-heading font-bold text-base md:text-xl text-heading mb-2">
+            {project.title}
+          </h3>
+          {project.type && (
+            <span className="self-start font-body text-xs text-accent border border-accent/30 rounded-full px-3 py-1 mb-3">
+              {project.type}
+            </span>
+          )}
+        </div>
+
+        <p className="font-body text-body text-sm lg:text-base leading-relaxed mb-4">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-4 mb-4">
+        <div className="flex flex-wrap gap-2 mb-4">
           {project.stack.map((tech) => (
             <span
               key={tech}

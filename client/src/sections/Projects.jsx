@@ -59,7 +59,8 @@ const Projects = () => {
 
       {/* items-stretch makes every grid cell the same height, which is what
           allows ProjectCard's h-full to actually take effect */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        {" "}
         {visibleProjects.map((project, index) => (
           <Reveal key={project.id} delay={(index % 3) * 0.1}>
             <ProjectCard key={project.id} project={project} />

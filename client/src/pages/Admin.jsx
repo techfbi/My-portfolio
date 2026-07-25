@@ -12,6 +12,7 @@ import useDraftForm from "../hooks/useDraftForm";
 const emptyProject = {
   title: "",
   description: "",
+  type: "",
   stack: [],
   link: "",
   existingImage: null,
@@ -84,6 +85,7 @@ const Admin = () => {
     setFormValues({
       title: project.title,
       description: project.description,
+      type: project.type || "",
       stack: project.stack,
       link: project.link,
       existingImage: project.image,
@@ -113,6 +115,7 @@ const Admin = () => {
     const data = new FormData();
     data.append("title", formValues.title);
     data.append("description", formValues.description);
+    data.append("type", formValues.type);
     data.append("stack", formValues.stack.join(","));
     data.append("link", formValues.link);
     if (formValues.existingImage)
@@ -219,6 +222,32 @@ const Admin = () => {
             rows={4}
             className="w-full text-[16px] bg-surface border border-border rounded-lg px-4 py-3 text-heading font-body focus:outline-none focus:border-accent"
           />
+        </div>
+
+        <div>
+          {/* Datalist gives suggestions from common types while still letting you type anything not listed
+              this matches how the stack input works, a fixed dropdown would block a type you haven't used yet */}
+          <label className="font-body text-sm text-body block mb-2">
+            Project Type
+          </label>
+          <input
+            type="text"
+            list="project-type-options"
+            value={formValues.type}
+            onChange={(e) =>
+              setFormValues((prev) => ({ ...prev, type: e.target.value }))
+            }
+            placeholder="e.g. Frontend, Backend, Full Stack, CMS"
+            className="w-full text-[16px] bg-surface border border-border rounded-lg px-4 py-3 text-heading font-body focus:outline-none focus:border-accent"
+          />
+          <datalist id="project-type-options">
+            <option value="Frontend" />
+            <option value="Backend" />
+            <option value="Full Stack" />
+            <option value="CMS" />
+            <option value="Mobile" />
+            <option value="AI" />
+          </datalist>
         </div>
 
         <div>
