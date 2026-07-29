@@ -19,6 +19,14 @@
   </head>
   <body class="bg-background">
     <div id="root"></div>
+
+    <!-- Fires the wake up request immediately, before the react bundle even finishes downloading
+         this is the earliest possible moment we can start waking the server, giving it a head start
+         while the rest of the page is still loading -->
+    <script>
+      fetch("https://my-portfolioapi-sist.onrender.com/api/health").catch(() => {})
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
