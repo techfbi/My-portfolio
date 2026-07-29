@@ -7,27 +7,20 @@ import path from "path"
 import jwt from "jsonwebtoken"
 import rateLimit from "express-rate-limit"
 import { fileURLToPath } from "url"
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import { connectDB } from "./db.js"
+import Project from "./models/Project.js"
+import { uploadImageBuffer } from "./cloudinary.js"
 
 dotenv.config()
+connectDB()
 
 const app = express()
 const PORT = process.env.PORT || 5000
-
-const projectsPath = path.join(__dirname, "../client/src/data/projects.json")
-const uploadsPath = path.join(__dirname, "../client/public/images/projects")
-
-if (!fs.existsSync(uploadsPath)) {
-  fs.mkdirSync(uploadsPath, { recursive: true })
-}
 
 // Cors is now locked to a single allowed origin instead of accepting requests from anywhere
 // this matters most once the site is live, since an open cors policy lets any website on the internet call our api
 app.use(cors({ origin: process.env.CLIENT_ORIGIN }))
 app.use(express.json())
-app.use("/images/projects", express.static(uploadsPath))
 
 // Limits login attempts to 5 tries per 15 minutes per ip address
 // this is what stops someone from scripting thousands of password guesses against the login route
@@ -37,18 +30,13 @@ const loginLimiter = rateLimit({
   message: { message: "Too many login attempts, please try again later" },
 })
 
-// Multer now checks file type and rejects anything that is not an image before it ever touches disk
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsPath),
-  filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${file.originalname}`
-    cb(null, uniqueName)
-  },
-})
+// Memory storage keeps the uploaded file as a buffer in memory instead of writing it to disk
+// this is what makes cloudinary uploads possible without ever touching the server's file system
+const storage = multer.memoryStorage()
 
 const upload = multer({
   storage,
-  limits: { fileSize: 8 * 1024 * 1024 }, // 8mb hard cap, multer rejects anything larger automatically
+  limits: { fileSize: 8 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith("image/")) {
       cb(null, true)
@@ -73,9 +61,10 @@ const requireAuth = (req, res, next) => {
   }
 }
 
-app.get("/api/projects", (req, res) => {
-  const data = fs.readFileSync(projectsPath, "utf-8")
-  res.json(JSON.parse(data))
+app.get("/api/projects", async (req, res) => {
+  // Sorts by newest first, mirrors the unshift behaviour the json file version had
+  const projects = await Project.find().sort({ createdAt: -1 })
+  res.json(projects)
 })
 
 // Login now issues a signed token valid for 3 hours instead of just returning true or false
@@ -89,62 +78,53 @@ app.post("/api/admin/login", loginLimiter, (req, res) => {
   res.json({ success: true, token })
 })
 
-// Creating a project now requires a valid token instead of the raw password
-app.post("/api/projects", requireAuth, upload.single("image"), (req, res) => {
-  const { title, description, type, stack, link } = req.body
-  const data = fs.readFileSync(projectsPath, "utf-8")
-  const projects = JSON.parse(data)
+app.post("/api/projects", requireAuth, upload.single("image"), async (req, res) => {
+  try {
+    const { title, description, type, stack, link } = req.body
 
-  const newProject = {
-    id: Date.now(),
-    title,
-    description,
-    type,
-    stack: stack.split(",").map((item) => item.trim()),
-    link,
-    image: req.file ? `/images/projects/${req.file.filename}` : null,
+    const imageUrl = req.file ? await uploadImageBuffer(req.file.buffer) : null
+
+    const newProject = await Project.create({
+      title,
+      description,
+      type,
+      stack: stack.split(",").map((item) => item.trim()),
+      link,
+      image: imageUrl,
+    })
+
+    res.json({ success: true, project: newProject })
+  } catch (error) {
+    // Logs the real error message and stack instead of letting it fail silently as an unreadable object
+    console.error("Create project failed:", error.message)
+    res.status(500).json({ message: error.message || "Something went wrong" })
   }
-
-  projects.unshift(newProject)
-  fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2))
-  res.json({ success: true, project: newProject })
 })
 
-// Updates an existing project by id, this is new, needed for the edit capability
-// if a new image is uploaded it replaces the old path, otherwise the existing image stays untouched
-app.put("/api/projects/:id", requireAuth, upload.single("image"), (req, res) => {
+app.put("/api/projects/:id", requireAuth, upload.single("image"), async (req, res) => {
   const { id } = req.params
   const { title, description, type, stack, link, existingImage } = req.body
 
-  const data = fs.readFileSync(projectsPath, "utf-8")
-  const projects = JSON.parse(data)
-  const index = projects.findIndex((p) => String(p.id) === id)
+  // A new upload replaces the old cloudinary url, otherwise the existing url is kept exactly as is
+  const imageUrl = req.file ? await uploadImageBuffer(req.file.buffer) : existingImage || null
 
-  if (index === -1) {
-    return res.status(404).json({ message: "Project not found" })
-  }
-
-  projects[index] = {
-    ...projects[index],
-    title,
-    description,
-    type,
-    stack: stack.split(",").map((item) => item.trim()),
-    link,
-    image: req.file ? `/images/projects/${req.file.filename}` : existingImage || null,
-  }
-
-  fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2))
-  res.json({ success: true, project: projects[index] })
-})
+  const updated = await Project.findByIdAndUpdate(
+    id,
+    {
+      title,
+      description,
+      type,
+      stack: stack.split(",").map((item) => item.trim()),
+      link,
+      image: imageUrl,
+    },
+    { new: true }
+  )
+});
 
 // Deletes a project by id, also new, needed since the admin page now manages existing projects, not just adds
-app.delete("/api/projects/:id", requireAuth, (req, res) => {
-  const { id } = req.params
-  const data = fs.readFileSync(projectsPath, "utf-8")
-  let projects = JSON.parse(data)
-  projects = projects.filter((p) => String(p.id) !== id)
-  fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2))
+app.delete("/api/projects/:id", requireAuth, async (req, res) => {
+  await Project.findByIdAndDelete(req.params.id)
   res.json({ success: true })
 })
 
