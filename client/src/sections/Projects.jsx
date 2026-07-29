@@ -16,7 +16,14 @@ const Projects = () => {
     const loadProjects = async () => {
       try {
         const data = await fetchProjects();
-        setProjects(data);
+        // Sorts so every project with a thumbnail image leads, image-less projects follow after
+        // this keeps the first row visually consistent instead of mixing tall and short cards randomly
+        const sorted = [...data].sort((a, b) => {
+          if (a.image && !b.image) return -1;
+          if (!a.image && b.image) return 1;
+          return 0;
+        });
+        setProjects(sorted);
       } catch (error) {
         console.error("Could not load projects", error);
       } finally {

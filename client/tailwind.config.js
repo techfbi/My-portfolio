@@ -20,9 +20,9 @@ export default {
       },
        fontFamily: {
         // Montserrat carries all headings, matches the bold geometric weight in the design
-        heading: ["Montserrat", "sans-serif"],
+        heading: ["Sora", "sans-serif"],
         // Inter carries all paragraph and label text, as instructed
-        body: ["Inter", "sans-serif"],
+        body: ["Manrope", "sans-serif"],
       },
       keyframes: {
         // Slides the track left by exactly half its own width

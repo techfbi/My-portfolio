@@ -43,7 +43,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-        className="hidden md:flex mt-[80px] absolute inset-0 items-center justify-center pointer-events-none z-0"
+        className="hidden md:flex mt-[10px] lg:mt-[80px] absolute inset-0 items-center justify-center pointer-events-none z-0"
       >
         {" "}
         <div
@@ -69,20 +69,20 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="order-2 md:order-1 relative z-10 md:w-[34%] flex-1 md:flex-none flex flex-col justify-center md:block min-h-0"
+        className="order-2 md:order-1 relative z-10 md:w-[50%] lg:w-[34%] flex-1 md:flex-none flex flex-col justify-center md:block min-h-0"
       >
         {" "}
-        <p className="text-accent font-body font-medium tracking-wide mb-3">
+        <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
           Hi, I'm
         </p>
-        <h1 className="font-heading text-4xl lg:text-6xl leading-[1.05] mb-3">
+        <h1 className="font-heading text-4xl md:text-2xl lg:text-6xl leading-[1.05] mb-2">
           <span className="text-heading font-extrabold block">Oluwafemi</span>
           <span className="text-accent font-extrabold block">Johnson</span>
         </h1>
         <h2 className="font-body text-xs md:text-sm lg:text-lg text-body font-medium mb-4">
           Full Stack Software Engineer
         </h2>
-        <p className="font-body w-[90%] md:w-full text-body text-xs md:text-sm lg:text-base leading-relaxed mb-5 md:mb-8">
+        <p className="font-body w-[90%] md:w-full text-body text-xs lg:text-base leading-relaxed mb-5 md:mb-8">
           Full stack means I don't hand off problems, I own them end to end,
           from database schema to Interactive UIs. Security built in at every
           layer, clean architecture and thoughtful system design throughout. I
@@ -93,17 +93,18 @@ const Hero = () => {
             href="mailto:femiwebfullstack@gmail.com"
             className="bg-accent text-sm lg:text-base text-background font-body font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full hover:bg-accent/90 transition-colors duration-200"
           >
-            Hire Me →
+            Available for work →
           </a>
           <a
-            href="/cv.pdf"
-            download
+            href="/Oluwafemi_Johnson_Fullstack_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-body text-sm lg:text-base text-heading underline underline-offset-4 decoration-muted hover:decoration-accent transition-colors duration-200"
           >
-            Download CV ↓
+            Resume ↓
           </a>
         </div>
-        <div className="flex items-center gap-4 mb-20 md:mb-0">
+        <div className="flex items-center gap-4 mb-[100px] md:mb-0">
           <a
             href="https://github.com/techfbi"
             target="_blank"
@@ -160,10 +161,10 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="order-3 relative z-10 md:w-[34%] hidden md:flex flex-col items-start md:items-end gap-6 md:ml-auto"
+        className="order-3 relative z-10 md:w-[44%] lg:w-[34%] hidden md:flex flex-col items-start md:items-end gap-6 md:ml-auto"
       >
         {" "}
-        <span className="flex items-center gap-2 border border-border rounded-full px-4 py-2 font-body text-sm text-heading">
+        <span className=" md:hidden lg:flex items-center gap-2 border border-border rounded-full px-4 py-2 font-body text-xs lg:text-sm text-heading">
           <span className="w-2 h-2 rounded-full bg-accent" />
           Available for work
         </span>
@@ -188,10 +189,10 @@ const Hero = () => {
                   <Icon size={16} className="text-accent" />
                 </span>
                 <div>
-                  <h3 className="font-heading font-bold text-sm text-heading mb-1">
+                  <h3 className="font-heading font-bold text-xs lg:text-sm text-heading mb-1">
                     {service.title}
                   </h3>
-                  <p className="font-body text-xs text-body">
+                  <p className="font-body text-[10px] lg:text-xs text-body">
                     {service.detail}
                   </p>
                 </div>

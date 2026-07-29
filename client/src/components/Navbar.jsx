@@ -77,7 +77,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           className="hidden md:inline-block font-body text-sm font-medium text-heading border border-border rounded-full px-5 py-2 hover:border-accent transition-colors duration-200"
         >
-          Let's Connect ↗
+          Let's Connect →
         </a>
 
         {/* Mobile menu toggle, only visible below medium screens */}
@@ -108,7 +108,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="font-body text-heading border border-border rounded-full px-5 py-2 text-center mt-2"
           >
-            Let's Connect ↗
+            Let's Connect →
           </a>
         </div>
       )}

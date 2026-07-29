@@ -2,7 +2,7 @@
   {
     "id": 1784957299609,
     "title": "Flax",
-    "description": "This is an intelligent nutition an hydration tracker",
+    "description": "Flax is an intelligent nutrition and hydration tracking app built for Nigerian and West African users, with an expanding regional catalogue. Users log meals, track personalised calorie and water targets, and build daily streaks. At the centre is Noura, a domain-locked AI nutrition assistant that knows each user's health goal, dietary style & allergies, answering questions, estimating meal nutrition, and identifying food from a photo with context specific to them.",
     "type": "Full Stack",
     "stack": [
       "Typescript",
@@ -10,7 +10,10 @@
       "Tailwind CSS",
       "PostgreSQL",
       "Node js",
-      "Express js"
+      "Express js",
+      "LLM",
+      "prompt engineering",
+      "multi-provider model cascading"
     ],
     "link": "https://flax-ui.vercel.app",
     "image": "/images/projects/1784966562579-flax shot.png"
@@ -31,16 +34,21 @@
   {
     "id": 2,
     "title": "Auth Gateway",
-    "description": "A reusable OAuth authentication service with token refresh handling, rate limiting, and audit logging, designed to sit in front of multiple client applications.",
+    "description": "An advanced standalone, integration-ready authentication backend built for developers who prefer to own their auth flow rather than delegate it to a managed service. Designed and implemented the full authentication system including a rotating refresh token architecture with token family tracking and automatic theft detection, httpOnly cookie delivery, in-memory access token strategy, Argon2id password hashing, OTP-gated email verification, Google OAuth with strict provider separation, and per-endpoint rate limiting backed by Redis.",
     "type": "Backend",
     "stack": [
       "Node.js",
       "REST APIs",
       "OAuth",
-      "PostgreSQL"
+      "PostgreSQL",
+      "Redis",
+      "Resend",
+      "Typescript",
+      "Express js",
+      "Google OAuth 2.0"
     ],
-    "link": "https://github.com/yourusername/authgateway",
-    "image": null
+    "link": "https://authgatewaydoc.vercel.app",
+    "image": "/images/projects/1785100634945-Auth gateway.png"
   },
   {
     "id": 3,
