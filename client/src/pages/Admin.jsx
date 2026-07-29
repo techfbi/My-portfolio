@@ -81,7 +81,7 @@ const Admin = () => {
 
   // Loads an existing project's values into the form, switching the page into edit mode
   const startEditing = (project) => {
-    setEditingId(project.id);
+    setEditingId(project._id);
     setFormValues({
       title: project.title,
       description: project.description,
@@ -295,7 +295,7 @@ const Admin = () => {
           </label>
           {formValues.existingImage && !image && (
             <img
-              src={`http://localhost:5000${formValues.existingImage}`}
+              src={formValues.existingImage}
               alt="Current project"
               className="w-32 h-20 object-cover rounded-lg mb-3 border border-border"
             />
@@ -362,7 +362,7 @@ const Admin = () => {
       <div className="flex flex-col gap-3">
         {projects.map((project) => (
           <div
-            key={project.id}
+            key={project._id}
             className="flex items-center justify-between bg-surface border border-border rounded-xl px-5 py-4"
           >
             <div>
@@ -381,7 +381,7 @@ const Admin = () => {
                 Edit
               </button>
               <button
-                onClick={() => handleDelete(project.id)}
+                onClick={() => handleDelete(project._id)}
                 className="font-body text-sm text-red-400 hover:underline"
               >
                 Delete

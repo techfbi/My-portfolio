@@ -8,7 +8,6 @@ const DESCRIPTION_LIMIT = 140;
 const ProjectCard = ({ project }) => {
   // Tracks whether this specific card's description is expanded
   const [expanded, setExpanded] = useState(false);
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // Only truncate if the description is actually longer than the limit
   // this is what stops read more from showing on short descriptions that never needed it
@@ -27,7 +26,7 @@ const ProjectCard = ({ project }) => {
       {project.image && (
         <div className="w-full aspect-video overflow-hidden">
           <img
-            src={`${BASE_URL}${project.image}`}
+            src={project.image}
             alt={project.title}
             className="w-full h-full object-cover"
           />

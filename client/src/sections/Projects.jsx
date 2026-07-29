@@ -69,8 +69,8 @@ const Projects = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         {" "}
         {visibleProjects.map((project, index) => (
-          <Reveal key={project.id} delay={(index % 3) * 0.1}>
-            <ProjectCard key={project.id} project={project} />
+          <Reveal key={project._id} delay={(index % 3) * 0.1}>
+            <ProjectCard key={project._id} project={project} />
           </Reveal>
         ))}
       </div>
