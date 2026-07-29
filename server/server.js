@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken"
 import rateLimit from "express-rate-limit"
 import { fileURLToPath } from "url"
 import { connectDB } from "./db.js"
-import Project from "./models/Project.js"
+import Project from "./models/project.js"
 import { uploadImageBuffer } from "./cloudinary.js"
 
 dotenv.config()
@@ -60,6 +60,12 @@ const requireAuth = (req, res, next) => {
     res.status(401).json({ message: "Invalid or expired token" })
   }
 }
+
+// Lightweight endpoint with no database call, used purely to keep the server awake
+// an external uptime service pings this every few minutes so render never lets the server sleep
+app.get("/api/health", (req, res) => {
+  res.json({ status: "awake" })
+})
 
 app.get("/api/projects", async (req, res) => {
   // Sorts by newest first, mirrors the unshift behaviour the json file version had
