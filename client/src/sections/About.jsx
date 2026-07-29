@@ -29,12 +29,14 @@ const About = () => {
           {/* Right column carries the descriptive paragraphs, replace with your real bio */}
           <div className="flex flex-col gap-5">
             <p className="font-body text-sm lg:text-base text-body leading-relaxed">
-              I Graduated with a B.Tech degree in Information Technology from
-              FUTA. One wierd thing I love is tackling problems, yes you read
-              right. But not life problems please 😂, I mean technology wise. I
-              loved it so much because of the feelings it gives when i get to
-              solve it. pheeew! priceless. I build applications end to end, from
-              cool and interactive user centered interfaces React and
+              I graduated with a B.Tech in Information Technology from the
+              Federal University of Technology Akure (FUTA), where I built a
+              strong foundation in software engineering, databases, AI/ML, and
+              web technologies. One wierd thing I love is tackling problems, yes
+              you read right. But not life problems please 😂, I mean technology
+              wise. I loved it so much because of the feelings it gives when I
+              get to solve it. pheeew! priceless. I build applications end to
+              end, from cool and interactive user centered interfaces React and
               TypeScript, to the systems behind them with Node.js, Express.js
               and PostgreSQL/MongoDB.
             </p>
