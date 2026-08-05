@@ -45,7 +45,7 @@ const Navbar = () => {
       {/* The pill itself, glass effect comes from backdrop blur plus a translucent background
           so content scrolling underneath is visible but softened */}
       <nav
-        className={`flex items-center justify-between w-full max-w-[1600px] rounded-lg px-6 py-3 backdrop-blur-lg border border-border transition-colors duration-300 ${
+        className={`flex items-center justify-between w-full max-w-[95vw] rounded-lg px-6 py-3 backdrop-blur-lg border border-border transition-colors duration-300 ${
           scrolled ? "bg-surface/70" : "bg-surface/40"
         }`}
       >

@@ -29,22 +29,27 @@ const About = () => {
           {/* Right column carries the descriptive paragraphs, replace with your real bio */}
           <div className="flex flex-col gap-5">
             <p className="font-body text-sm lg:text-base text-body leading-relaxed">
-              I graduated with a B.Tech in Information Technology from the
-              Federal University of Technology Akure (FUTA), where I built a
-              strong foundation in software engineering, databases, AI/ML, and
-              web technologies. One wierd thing I love is tackling problems, yes
-              you read right. But not life problems please 😂, I mean technology
-              wise. I loved it so much because of the feelings it gives when I
-              get to solve it. pheeew! priceless. I build applications end to
-              end, from cool and interactive user centered interfaces React and
-              TypeScript, to the systems behind them with Node.js, Express.js
-              and PostgreSQL/MongoDB.
+              I hold a B.Tech in Information Technology from the Federal
+              University of Technology Akure (FUTA). Since then, I've expanded
+              my foundation in software engineering, databases, system design,
+              and AI by building production-ready full-stack applications,
+              secure authentication systems, and AI-powered solutions. One weird
+              thing about me: I genuinely enjoy solving problems. And no, not
+              life problems 😂... technology problems. I love breaking down
+              complex challenges, experimenting with different approaches, and
+              finally getting everything to click. I build applications end to
+              end, from intuitive React and TypeScript interfaces to scalable
+              backend systems with Node.js, Express.js, PostgreSQL, and MongoDB.
             </p>
-            <p className="font-body text-body leading-relaxed">
-              <strong>My engineering principles</strong> center on clean
+            <p className="font-body text-body/70 leading-relaxed">
+              <strong>My engineering philosophy</strong> center on clean
               architecture, thoughtful system design, and intuitive user
-              experiences with uncompromising security as my ultimate priority.
-              Being fully stacked is not just a title I wear, it's how I work.
+              experiences with uncompromising security.{" "}
+              <i>
+                {" "}
+                To me, full-stack isn't just a title, it's how I think, build,
+                and solve problems.
+              </i>
             </p>
           </div>
         </div>

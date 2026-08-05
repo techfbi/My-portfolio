@@ -82,7 +82,7 @@ const Hero = () => {
         <h2 className="font-body text-xs md:text-sm lg:text-lg text-body font-medium mb-4">
           Full Stack Software Engineer
         </h2>
-        <p className="font-body w-[90%] md:w-full text-body text-xs lg:text-base leading-relaxed mb-5 md:mb-8">
+        <p className="font-body w-[90%] md:w-full text-body/70 text-xs lg:text-base leading-relaxed mb-5 md:mb-8">
           Full stack means I don't hand off problems, I own them end to end,
           from database schema to Interactive UIs. Security built in at every
           layer, clean architecture and thoughtful system design throughout. I

@@ -45,7 +45,7 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        <p className="font-body text-body text-sm lg:text-base leading-relaxed mb-4">
+        <p className="font-body text-body/70 text-sm lg:text-base leading-relaxed mb-4">
           {displayText}
           {/* Read more only renders when the text is genuinely truncated, never shows on short descriptions */}
           {isLong && !expanded && (

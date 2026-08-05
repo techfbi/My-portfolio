@@ -55,7 +55,7 @@ const Skills = () => {
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="font-body text-xs md:text-sm text-body bg-[#221E18] border border-border rounded-full px-4 py-2"
+                  className="font-body text-xs md:text-sm text-body border border-border rounded-full px-4 py-2"
                 >
                   {skill}
                 </span>
