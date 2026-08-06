@@ -8,6 +8,7 @@ const DESCRIPTION_LIMIT = 140;
 const ProjectCard = ({ project }) => {
   // Tracks whether this specific card's description is expanded
   const [expanded, setExpanded] = useState(false);
+  const [showAllTags, setShowAllTags] = useState(false);
 
   // Only truncate if the description is actually longer than the limit
   // this is what stops read more from showing on short descriptions that never needed it
@@ -21,7 +22,7 @@ const ProjectCard = ({ project }) => {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="h-full flex flex-col bg-surface border border-border rounded-2xl overflow-hidden"
+      className="flex h-full flex-col rounded-2xl border border-border bg-surface overflow-hidden"
     >
       {project.image && (
         <div className="w-full aspect-video overflow-hidden">
@@ -45,45 +46,55 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        <p className="font-body text-body/70 text-xs md:text-sm lg:text-base leading-relaxed h-[110px]">
-          {" "}
-          {displayText}
-          {/* Read more only renders when the text is genuinely truncated, never shows on short descriptions */}
-          {isLong && !expanded && (
+        <div className="min-h-[95px] mb-1">
+          <p className="font-body text-body/70 text-xs md:text-sm lg:text-base leading-relaxed">
+            {displayText}
+
+            {isLong && !expanded && (
+              <button
+                onClick={() => setExpanded(true)}
+                className="text-accent font-medium ml-1 hover:underline"
+              >
+                Read more
+              </button>
+            )}
+          </p>
+
+          {isLong && expanded && (
             <button
-              onClick={() => setExpanded(true)}
-              className="text-accent font-medium ml-1 hover:underline"
+              onClick={() => setExpanded(false)}
+              className="mt-2 mb-2 text-accent font-medium text-xs md:text-sm hover:underline"
             >
-              Read more
+              Show less
             </button>
           )}
-        </p>
+        </div>
 
-        {/* Show less only appears once expanded, gives a way back without losing the card's original compact size */}
-        {isLong && expanded && (
-          <button
-            onClick={() => setExpanded(false)}
-            className="text-accent font-medium text-xs md:text-sm mb-3 text-left hover:underline"
-          >
-            Show less
-          </button>
-        )}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {(showAllTags ? project.stack : project.stack.slice(0, 7)).map(
+            (tech) => (
+              <span
+                key={tech}
+                className="inline-flex items-center justify-center h-8 px-3 rounded-full border border-border bg-[#221E18] text-xs text-body leading-none whitespace-nowrap"
+              >
+                {tech}
+              </span>
+            ),
+          )}
 
-        <div className="flex flex-wrap gap-2 mt-3 mb-3 min-h-[88px]">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="font-body bg-[#221E18] text-xs text-body border border-border rounded-full px-3 py-1"
+          {project.stack.length > 7 && (
+            <button
+              type="button"
+              onClick={() => setShowAllTags(!showAllTags)}
+              className="inline-flex items-center justify-center h-8 px-3 rounded-full border border-accent/40 text-xs text-accent hover:bg-accent/10 transition-colors"
             >
-              {tech}
-            </span>
-          ))}
+              {showAllTags ? "Show less" : `+${project.stack.length - 7} more`}
+            </button>
+          )}
         </div>
 
         <a
           href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
           className="mt-auto font-body text-accent text-xs md:text-sm font-medium hover:underline"
         >
           View Project →

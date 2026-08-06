@@ -63,14 +63,14 @@ const AddedValue = () => {
 
         {/* Quote styled distinctly from body text, a left border instead of quotation marks
             keeps it from looking like a decorative pull quote and more like a stated principle */}
-        <blockquote className="border-l-2 border-accent pl-4 mb-8">
-          <p className="font-heading text-heading text-xs md:text-sm lg:text-lg leading-snug">
+        <p className="font-body text-body/70 text-xs md:text-sm leading-snug">
+          <blockquote className="border-l-4 border-accent bg-accent/10 pl-4 py-3 mb-8">
             The UI is your product's handshake, it forms a user's opinion before
             they ever trigger a single line of backend code. If that handshake
             is clumsy or slow, users leave, making even the most brilliant
             engineering irrelevant.
-          </p>
-        </blockquote>
+          </blockquote>
+        </p>
 
         {/* Small credential marks, logos if you have them, initials as a fallback so nothing breaks
             if a logo file is missing, the design intentionally degrades gracefully instead of showing a broken image */}

@@ -45,3 +45,59 @@ h1, h2, h3, h4 {
 .section-x {
   @apply px-6 md:px-16;
 }
+
+/* Mobile landscape only */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .hero-landscape{
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    display:block;
+  }
+
+  .hero-landscape > div {
+    justify-content: end;
+    margin-top: 40px;
+    padding-right: 40px;
+  }
+
+  .hero-landscape .w-auto {
+    width: 500px;
+    object-position: 0% 10%;
+  }
+
+
+  /* Hide things that take too much space */
+  .hero-mobile-image,
+  .hero-services{
+    display:none !important;
+  }
+
+  /* Let the text become the hero */
+  .hero-landscape-text{
+    width:100% !important;
+    max-width:760px;
+    margin:0 auto;
+    margin-top: 45px;
+  }
+
+  .hero-landscape-text h1{
+    font-size:2rem;
+    line-height:1;
+  }
+
+  .hero-landscape-text h2{
+    font-size:14px;
+  }
+
+  .hero-landscape-text p{
+    max-width:60%;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .hero-landscape-text .mb-\[100px\]{
+    margin-bottom:0;
+  }
+}

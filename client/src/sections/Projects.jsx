@@ -93,6 +93,18 @@ const Projects = () => {
           ))}
         </div>
       )}
+
+      <p className="font-body text-body txt-xs md:text-sm mt-12">
+        More of what I've built and experimented with lives on{" "}
+        <a
+          href="https://github.com/techfbi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline"
+        >
+          GitHub →
+        </a>
+      </p>
     </section>
   );
 };

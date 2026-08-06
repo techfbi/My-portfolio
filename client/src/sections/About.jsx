@@ -17,14 +17,29 @@ const About = () => {
         </p>
       </Reveal>
 
-      <Reveal delay={0.1}>
+      <Reveal delay={0.2}>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left column carries the big statement headline */}
-          <h2 className="font-heading font-medium lg:font-semibold text-2xl md:text-3xl lg:text-5xl leading-tight">
-            <span className="text-heading">Passionate about </span>
-            <span className="text-accent">building</span>
-            <span className="text-heading"> reliable, scalable software</span>
-          </h2>
+          <div className="flex flex-col gap-4">
+            <h2 className="font-heading font-medium lg:font-semibold text-2xl md:text-3xl lg:text-5xl leading-tight">
+              <span className="text-heading">Passionate about </span>
+              <span className="text-accent">building</span>
+              <span className="text-heading"> reliable, scalable software</span>
+            </h2>
+            <Reveal delay={0.4} className="rounded-2xl md:p-6">
+              <div className="grid grid-cols-2 gap-5">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="font-heading font-extrabold text-xl md:text-2xl lg:text-3xl  mb-1 text-accent">
+                      {stat.value}
+                    </p>
+
+                    <p className="text-xs text-body">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
 
           {/* Right column carries the descriptive paragraphs, replace with your real bio */}
           <div className="flex flex-col gap-5">
@@ -33,43 +48,31 @@ const About = () => {
               University of Technology Akure (FUTA). Since then, I've expanded
               my foundation in software engineering, databases, system design,
               and AI by building production-ready full-stack applications,
-              secure authentication systems, and AI-powered solutions. One weird
-              thing about me: I genuinely enjoy solving problems. And no, not
-              life problems 😂... technology problems. I love breaking down
-              complex challenges, experimenting with different approaches, and
-              finally getting everything to click. I build applications end to
-              end, from intuitive React and TypeScript interfaces to scalable
+              secure authentication systems, and AI-powered solutions.{" "}
+            </p>
+            <p className="font-body text-xs md:text-sm lg:text-base text-body leading-relaxed">
+              {" "}
+              One weird thing about me: I genuinely enjoy solving problems. And
+              no, not life problems 😂... technology problems. I love breaking
+              down complex challenges, experimenting with different approaches,
+              and finally getting everything to click. I build applications end
+              to end, from intuitive React and TypeScript interfaces to scalable
               backend systems with Node.js, Express.js, PostgreSQL, and MongoDB.
             </p>
             <p className="font-body text-body/70 text-xs md:text-sm leading-relaxed">
-              <strong>My engineering philosophy</strong> center on clean
-              architecture, thoughtful system design, and intuitive user
-              experiences with uncompromising security.{" "}
-              <i>
-                {" "}
-                To me, full-stack isn't just a title, it's how I think, build,
-                and solve problems.
-              </i>
+              <blockquote className="border-l-4 border-accent bg-accent/10 pl-5 py-4 leading-snug">
+                <strong>My engineering philosophy</strong> center on clean
+                architecture, thoughtful system design, and intuitive user
+                experiences with uncompromising security.{" "}
+                <i>
+                  {" "}
+                  To me, full-stack isn't just a title, it's how I think, build,
+                  and solve problems.
+                </i>
+              </blockquote>
             </p>
           </div>
         </div>
-      </Reveal>
-
-      {/* Stats grid, two columns on mobile, four across on desktop */}
-      <Reveal
-        delay={0.2}
-        className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 mt-16"
-      >
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <p className="font-heading font-extrabold text-xl md:text-3xl text-accent mb-1">
-              {stat.value}
-            </p>
-            <p className="font-body text-body text-xs md:text-sm">
-              {stat.label}
-            </p>
-          </div>
-        ))}
       </Reveal>
     </section>
   );

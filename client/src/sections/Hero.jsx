@@ -34,7 +34,7 @@ const Hero = () => {
     // min-h-screen forces full viewport height at every breakpoint, flex centers content vertically when there is extra room
     <section
       id="home"
-      className="section-x relative h-screen flex flex-col md:flex-row md:items-center md:justify-between md:h-auto md:min-h-screen pt-20 md:pt-10 lg:pt-0 pb-8 md:pb-0 gap-4 md:gap-4"
+      className="hero-landscape section-x relative h-screen flex flex-col md:flex-row md:items-center md:justify-between md:h-auto md:min-h-screen pt-20 md:pt-10 lg:pt-0 pb-8 md:pb-0 gap-4 md:gap-4"
     >
       {/* Portrait is a background layer, absolutely positioned and centered
           it sits outside the flex flow entirely so it never affects the width of the columns beside it
@@ -47,11 +47,11 @@ const Hero = () => {
       >
         {" "}
         <div
-          className="absolute w-16 h-16 rounded-full border border-accent/40"
+          className="md:hidden lg:block absolute w-16 h-16 rounded-full border border-accent/40"
           style={{ top: "20%", right: "25%" }}
         />
         <div
-          className="absolute w-3 h-3 rounded-full bg-accent"
+          className="md:hidden lg:block absolute w-3 h-3 rounded-full bg-accent"
           style={{ top: "20%", right: "25%" }}
         />
         <img
@@ -69,7 +69,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="order-2 md:order-1 relative z-10 md:w-[50%] lg:w-[34%] flex-1 md:flex-none flex flex-col justify-center md:block min-h-0"
+        className="hero-text order-2 md:order-1 relative z-10 md:w-[50%] lg:w-[34%] hero-landscape-text flex-1 md:flex-none flex flex-col justify-center md:block min-h-0"
       >
         {" "}
         <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
@@ -82,7 +82,7 @@ const Hero = () => {
         <h2 className="font-body text-xs md:text-sm lg:text-lg text-body font-medium mb-4">
           Full Stack Software Engineer
         </h2>
-        <p className="font-body w-[90%] md:w-full text-body/70 text-xs md:text-sm lg:text-base leading-relaxed mb-5 md:mb-8">
+        <p className="font-body w-[90%] md:w-[100%] text-body/70 text-xs md:text-sm lg:text-base leading-relaxed mb-5 md:mb-8">
           Full stack means I don't hand off problems, I own them end to end,
           from database schema to Interactive UIs. Security built in at every
           layer, clean architecture and thoughtful system design throughout. I
@@ -149,7 +149,7 @@ const Hero = () => {
         <img
           src="/images/portrait.png"
           alt="Portrait of Oluwafemi Johnson"
-          className="h-[45vh] w-auto object-contain hero-portrait-fade"
+          className="hero-mobile-image h-[45vh] w-auto object-contain hero-portrait-fade"
           fetchpriority="high"
           loading="eager"
           decoding="async"
@@ -161,7 +161,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="order-3 relative z-10 md:w-[44%] lg:w-[34%] hidden md:flex flex-col items-start md:items-end gap-6 md:ml-auto"
+        className="hero-services order-3 relative z-10 md:w-[44%] lg:w-[34%] hidden md:flex flex-col items-start md:items-end gap-6 md:ml-auto"
       >
         {" "}
         <span className=" md:hidden lg:flex items-center gap-2 border border-border rounded-full px-4 py-2 font-body text-xs lg:text-sm text-heading">

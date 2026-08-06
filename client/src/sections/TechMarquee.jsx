@@ -58,13 +58,13 @@ const TechMarquee = () => {
 
         {/* Track holds two copies of the list back to back, animation slides exactly one copy's width
             this makes the loop seamless, when copy one fully exits, copy two is already in its place */}
-        <div className="flex w-max animate-marquee">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           {[...technologies, ...technologies].map((tech, index) => {
             const Icon = tech.icon;
             return (
               <div
                 key={`${tech.name}-${index}`}
-                className="flex items-center gap-3 px-8"
+                className="flex items-center gap-3 px-5 md:px-8"
               >
                 <Icon
                   size="1em"

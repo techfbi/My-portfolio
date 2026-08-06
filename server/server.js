@@ -124,7 +124,7 @@ app.put("/api/projects/:id", requireAuth, upload.single("image"), async (req, re
       link,
       image: imageUrl,
     },
-    { new: true }
+    { returnDocument: "after" }
   )
 });
 

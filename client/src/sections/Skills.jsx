@@ -42,12 +42,12 @@ const Skills = () => {
         </h2>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 md:gap-y-12">
         {skillGroups.map((group, index) => (
-          <Reveal key={group.category} delay={index * 0.1}>
-            <div className="flex items-center gap-2 mb-5 pb-3 border-b border-border">
+          <Reveal key={group.category} delay={index * 0.2}>
+            <div className="flex items-center gap-2 mb-3 md:mb-5 pb-3 border-b border-border">
               <span className="w-2 h-2 rounded-full bg-accent" />
-              <h3 className="font-heading font-bold text-base lg:text-lg text-heading">
+              <h3 className="font-heading font-bold text-sm md:text-base lg:text-lg text-heading">
                 {group.category}
               </h3>
             </div>
