@@ -69,7 +69,7 @@ const ProjectCard = ({ project }) => {
           </button>
         )}
 
-        <div className="flex flex-wrap gap-2 mt-3 min-h-[88px]">
+        <div className="flex flex-wrap gap-2 mt-3 mb-3 min-h-[88px]">
           {project.stack.map((tech) => (
             <span
               key={tech}
