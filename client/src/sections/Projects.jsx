@@ -94,7 +94,7 @@ const Projects = () => {
         </div>
       )}
 
-      <p className="font-body text-body txt-xs md:text-sm mt-12">
+      <p className="font-body text-body text-xs md:text-sm mt-12">
         More of what I've built and experimented with lives on{" "}
         <a
           href="https://github.com/techfbi"
