@@ -21,7 +21,7 @@ const ProjectCard = ({ project }) => {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="flex flex-col bg-surface border border-border rounded-2xl overflow-hidden"
+      className="h-full flex flex-col bg-surface border border-border rounded-2xl overflow-hidden"
     >
       {project.image && (
         <div className="w-full aspect-video overflow-hidden">
@@ -33,7 +33,7 @@ const ProjectCard = ({ project }) => {
         </div>
       )}
 
-      <div className="flex flex-col p-6">
+      <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="font-heading font-bold text-base md:text-xl text-heading mb-2">
             {project.title}
@@ -45,7 +45,8 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        <p className="font-body text-body/70 text-xs md:text-sm lg:text-base leading-relaxed mb-4">
+        <p className="font-body text-body/70 text-xs md:text-sm lg:text-base leading-relaxed h-[110px]">
+          {" "}
           {displayText}
           {/* Read more only renders when the text is genuinely truncated, never shows on short descriptions */}
           {isLong && !expanded && (
@@ -68,7 +69,7 @@ const ProjectCard = ({ project }) => {
           </button>
         )}
 
-        <div className="flex flex-wrap gap-2 mb-4 mt-3">
+        <div className="flex flex-wrap gap-2 mt-3 min-h-[88px]">
           {project.stack.map((tech) => (
             <span
               key={tech}
@@ -83,7 +84,7 @@ const ProjectCard = ({ project }) => {
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-body text-accent text-xs md:text-sm font-medium hover:underline"
+          className="mt-auto font-body text-accent text-xs md:text-sm font-medium hover:underline"
         >
           View Project →
         </a>
