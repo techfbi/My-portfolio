@@ -12,7 +12,7 @@ const About = () => {
   return (
     <section id="about" className="section-x py-24 border-t border-border">
       <Reveal>
-        <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
+        <p className="text-accent text-xs md:text-sm lg:text-base font-body font-medium tracking-wide mb-3">
           About Me
         </p>
       </Reveal>
@@ -28,7 +28,7 @@ const About = () => {
 
           {/* Right column carries the descriptive paragraphs, replace with your real bio */}
           <div className="flex flex-col gap-5">
-            <p className="font-body text-sm lg:text-base text-body leading-relaxed">
+            <p className="font-body text-xs md:text-sm lg:text-base text-body leading-relaxed">
               I hold a B.Tech in Information Technology from the Federal
               University of Technology Akure (FUTA). Since then, I've expanded
               my foundation in software engineering, databases, system design,
@@ -41,7 +41,7 @@ const About = () => {
               end, from intuitive React and TypeScript interfaces to scalable
               backend systems with Node.js, Express.js, PostgreSQL, and MongoDB.
             </p>
-            <p className="font-body text-body/70 leading-relaxed">
+            <p className="font-body text-body/70 text-xs md:text-sm leading-relaxed">
               <strong>My engineering philosophy</strong> center on clean
               architecture, thoughtful system design, and intuitive user
               experiences with uncompromising security.{" "}
@@ -62,10 +62,12 @@ const About = () => {
       >
         {stats.map((stat) => (
           <div key={stat.label}>
-            <p className="font-heading font-extrabold text-2xl md:text-3xl text-accent mb-1">
+            <p className="font-heading font-extrabold text-xl md:text-3xl text-accent mb-1">
               {stat.value}
             </p>
-            <p className="font-body text-body text-sm">{stat.label}</p>
+            <p className="font-body text-body text-xs md:text-sm">
+              {stat.label}
+            </p>
           </div>
         ))}
       </Reveal>

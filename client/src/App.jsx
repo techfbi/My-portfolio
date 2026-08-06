@@ -8,6 +8,7 @@ import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
 import TechMarquee from "./sections/TechMarquee";
+import AddedValue from "./sections/AddedValue";
 
 // Main portfolio page, everything except admin lives here
 const HomePage = () => (
@@ -17,6 +18,7 @@ const HomePage = () => (
     <About />
     <TechMarquee />
     <Projects />
+    <AddedValue />
     <Skills />
     <Contact />
     <Footer />

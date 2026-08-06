@@ -43,7 +43,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section-x py-24 border-t border-border">
       <Reveal>
-        <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
+        <p className="text-accent text-xs md:text-sm lg:text-base font-body font-medium tracking-wide mb-3">
           My Work
         </p>
         <h2 className="font-heading font-medium lg:font-semibold text-2xl md:text-3xl lg:text-5xl mb-12">

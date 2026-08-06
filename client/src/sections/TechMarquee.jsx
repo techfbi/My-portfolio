@@ -42,7 +42,7 @@ const technologies = [
 const TechMarquee = () => {
   return (
     <section className="section-x py-20 border-t border-border overflow-hidden">
-      <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
+      <p className="text-accent text-xs md:text-sm lg:text-base font-body font-medium tracking-wide mb-3">
         Technologies & Tools
       </p>
       <h2 className="font-heading font-medium lg:font-semibold text-2xl md:text-3xl lg:text-5xl mb-12 leading-tight">
@@ -71,7 +71,7 @@ const TechMarquee = () => {
                   className="text-[20px] lg:text-[28px]"
                   style={{ color: tech.color }}
                 />
-                <span className="font-body text-body text-sm lg:text-base whitespace-nowrap">
+                <span className="font-body text-body text-xs md:text-sm lg:text-base whitespace-nowrap">
                   {tech.name}
                 </span>
               </div>

@@ -82,7 +82,7 @@ const Hero = () => {
         <h2 className="font-body text-xs md:text-sm lg:text-lg text-body font-medium mb-4">
           Full Stack Software Engineer
         </h2>
-        <p className="font-body w-[90%] md:w-full text-body/70 text-xs lg:text-base leading-relaxed mb-5 md:mb-8">
+        <p className="font-body w-[90%] md:w-full text-body/70 text-xs md:text-sm lg:text-base leading-relaxed mb-5 md:mb-8">
           Full stack means I don't hand off problems, I own them end to end,
           from database schema to Interactive UIs. Security built in at every
           layer, clean architecture and thoughtful system design throughout. I
@@ -91,7 +91,7 @@ const Hero = () => {
         <div className="flex items-center gap-6 mb-6 md:mb-8">
           <a
             href="mailto:femiwebfullstack@gmail.com"
-            className="bg-accent text-sm lg:text-base text-background font-body font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full hover:bg-accent/90 transition-colors duration-200"
+            className="bg-accent text-xs md:text-sm lg:text-base text-background font-body font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full hover:bg-accent/90 transition-colors duration-200"
           >
             Available for work →
           </a>
@@ -99,7 +99,7 @@ const Hero = () => {
             href="/Oluwafemi_Johnson_Fullstack_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body text-sm lg:text-base text-heading underline underline-offset-4 decoration-muted hover:decoration-accent transition-colors duration-200"
+            className="font-body text-xs md:text-sm lg:text-base text-heading underline underline-offset-4 decoration-muted hover:decoration-accent transition-colors duration-200"
           >
             Resume ↓
           </a>

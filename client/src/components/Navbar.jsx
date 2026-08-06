@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <header className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4">
       {/* The pill itself, glass effect comes from backdrop blur plus a translucent background
           so content scrolling underneath is visible but softened */}
       <nav
@@ -52,7 +52,7 @@ const Navbar = () => {
         {/* Logo mark, as instructed this reads O.jayy instead of a full name */}
         <button
           onClick={() => scrollToSection("home")}
-          className="font-heading font-bold text-heading text-lg"
+          className="font-heading font-bold text-heading text-xs md:text-sm lg:text-lg"
         >
           O.jayy<span className="text-accent">.</span>
         </button>

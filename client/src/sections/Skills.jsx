@@ -33,7 +33,7 @@ const Skills = () => {
   return (
     <section id="skills" className="section-x py-24 border-t border-border">
       <Reveal>
-        <p className="text-accent text-sm lg:text-base font-body font-medium tracking-wide mb-3">
+        <p className="text-accent text-xs md:text-sm lg:text-base font-body font-medium tracking-wide mb-3">
           What I Work With
         </p>
         <h2 className="font-heading font-medium lg:font-semibold text-2xl md:text-3xl lg:text-5xl mb-16">
@@ -51,7 +51,7 @@ const Skills = () => {
                 {group.category}
               </h3>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-1">
               {group.skills.map((skill) => (
                 <span
                   key={skill}
