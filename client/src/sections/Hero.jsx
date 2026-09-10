@@ -34,7 +34,7 @@ const Hero = () => {
     // min-h-screen forces full viewport height at every breakpoint, flex centers content vertically when there is extra room
     <section
       id="home"
-      className="hero-landscape section-x relative h-screen flex flex-col md:flex-row md:items-center md:justify-between md:h-auto md:min-h-screen pt-20 md:pt-10 lg:pt-0 pb-8 md:pb-0 gap-4 md:gap-4"
+      className="hero-landscape section-x relative h-screen flex flex-col md:flex-row md:items-center md:justify-between md:h-auto md:min-h-screen pt-8 md:pt-10 lg:pt-0 pb-8 md:pb-0 gap-4 md:gap-4"
     >
       {/* Portrait is a background layer, absolutely positioned and centered
           it sits outside the flex flow entirely so it never affects the width of the columns beside it
