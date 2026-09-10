@@ -8,11 +8,11 @@ const skillGroups = [
   },
   {
     category: "Backend",
-    skills: ["Node.js", "TypeScript", "REST APIs", "OAuth"],
+    skills: ["Node.js", "TypeScript", "REST APIs", "OAuth 2.0", "Express.js"],
   },
   {
     category: "Database",
-    skills: ["PostgreSQL", "MongoDB", "Redis"],
+    skills: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB"],
   },
   {
     category: "AI",
@@ -25,7 +25,14 @@ const skillGroups = [
   },
   {
     category: "Tools & Others",
-    skills: ["Git", "Postman", "Cloudflare"],
+    skills: [
+      "Git",
+      "Postman",
+      "Cloudflare",
+      "AWS Cloud Infrastructure",
+      "Figma",
+      "BullMQ",
+    ],
   },
 ];
 
