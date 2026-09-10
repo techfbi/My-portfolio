@@ -57,7 +57,7 @@ const Hero = () => {
         <img
           src="/images/portrait.png"
           alt="Portrait of Oluwafemi Johnson"
-          className="h-[85vh] w-auto object-cover hero-portrait-fade"
+          className="h-[95vh] w-auto object-cover hero-portrait-fade"
           fetchpriority="high"
           loading="eager"
           decoding="async"
@@ -149,7 +149,7 @@ const Hero = () => {
         <img
           src="/images/portrait.png"
           alt="Portrait of Oluwafemi Johnson"
-          className="hero-mobile-image h-[45vh] w-auto object-contain hero-portrait-fade"
+          className="hero-mobile-image h-[55vh] w-auto object-contain hero-portrait-fade"
           fetchpriority="high"
           loading="eager"
           decoding="async"
