@@ -96,7 +96,7 @@ const Hero = () => {
             Available for work →
           </a>
           <a
-            href="/Oluwafemi_Johnson_Fullstack_CV.pdf"
+            href="mailto:femiwebfullstack@gmail.com?subject=Resume%20Request%20-%20Johnson%20Portfolio&body=Hello%20Johnson%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20request%20your%20resume.%0A%0A"
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-xs md:text-sm lg:text-base text-heading underline underline-offset-4 decoration-muted hover:decoration-accent transition-colors duration-200"
